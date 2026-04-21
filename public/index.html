@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiveSportz Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header class="header">
+        <h1>LiveSportz Dashboard</h1>
+        <p>Monitor matches, post commentary, and receive live updates.</p>
+      </header>
+
+      <section class="card">
+        <h2>Create Match</h2>
+        <form id="create-match-form" class="grid-form">
+          <label>Sport <input name="sport" required placeholder="Football" /></label>
+          <label>Home Team <input name="homeTeam" required placeholder="Arsenal" /></label>
+          <label>Away Team <input name="awayTeam" required placeholder="Chelsea" /></label>
+          <label>Start Time <input name="startTime" type="datetime-local" required /></label>
+          <label>End Time <input name="endTime" type="datetime-local" required /></label>
+          <label>Home Score <input name="homeScore" type="number" min="0" value="0" /></label>
+          <label>Away Score <input name="awayScore" type="number" min="0" value="0" /></label>
+          <button type="submit">Create Match</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <h2>Matches</h2>
+          <button id="refresh-matches" class="secondary">Refresh</button>
+        </div>
+        <ul id="matches-list" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Commentary</h2>
+        <p id="selected-match-label">Select a match to view commentary.</p>
+
+        <form id="create-commentary-form" class="grid-form disabled">
+          <label>Minute <input name="minute" type="number" min="0" /></label>
+          <label>Event Type <input name="eventType" placeholder="goal" /></label>
+          <label>Actor <input name="actor" placeholder="Player name" /></label>
+          <label>Team <input name="team" placeholder="Home team" /></label>
+          <label class="full">Message <textarea name="message" required rows="3" placeholder="What happened?"></textarea></label>
+          <button type="submit">Post Commentary</button>
+        </form>
+
+        <ul id="commentary-list" class="list"></ul>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
