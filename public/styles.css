@@ -1,0 +1,119 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --bg: #0f172a;
+  --card: #111827;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --text: #e2e8f0;
+  --danger: #f87171;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: linear-gradient(170deg, #020617, #0f172a 30%, #111827);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.layout {
+  width: min(1024px, 95vw);
+  margin: 1.5rem auto 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.header h1 { margin-bottom: .3rem; }
+.header p { margin: 0; color: var(--muted); }
+
+.card {
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: .75rem;
+}
+
+.grid-form.disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+label.full { grid-column: 1 / -1; }
+
+input, textarea, button {
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: var(--text);
+  border-radius: 8px;
+  padding: .6rem .7rem;
+  font-size: .95rem;
+}
+
+button {
+  background: #0369a1;
+  border-color: #0ea5e9;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: transparent;
+  border-color: #475569;
+}
+
+.list {
+  list-style: none;
+  margin: .8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .6rem;
+}
+
+.list-item {
+  padding: .75rem;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #0b1220;
+}
+
+.list-item.active { border-color: var(--accent); }
+.list-item p { margin: .25rem 0; }
+.meta { color: var(--muted); font-size: .85rem; }
+
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  max-width: min(90vw, 340px);
+  background: #0b1220;
+  border: 1px solid #334155;
+  color: var(--text);
+  padding: .7rem .8rem;
+  border-radius: 8px;
+}
+
+.toast.error { border-color: var(--danger); }
